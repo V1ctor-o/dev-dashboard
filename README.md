@@ -1,44 +1,84 @@
 # Dev Dashboard
 
-A simple, responsive React dashboard with:
+A simple, responsive productivity dashboard built with React and Firebase.
 
-- Firebase Authentication (email/password)
-- Firestore-backed Notes + Tasks
-- Tailwind CSS (with a dark mode toggle)
+This project is designed for learning, collaboration, and open-source contributions.
 
-## Getting started
+---
 
-1. Install dependencies
+## 🚀 Features
 
-```bash
+* Authentication (Email/Password)
+* Notes (Create, Read, Update, Delete)
+* Tasks (Create, Read, Update, Delete)
+* Dashboard overview
+* Dark mode toggle
+* Responsive design (mobile + desktop)
+* Firebase integration (Auth + Firestore)
+
+---
+
+## 🛠 Tech Stack
+
+* React
+* Firebase Authentication
+* Firestore Database
+* Tailwind CSS
+* Vite
+
+---
+
+## ⚙️ Getting Started
+
+### 1. Clone the repository
+
+```
+git clone https://github.com/your-username/dev-dashboard.git
+cd dev-dashboard
+```
+
+### 2. Install dependencies
+
+```
 npm install
 ```
 
-2. Create a `.env` file
+### 3. Setup environment variables
 
-Copy `.env.example` to `.env` and fill in your Firebase project values.
+Create a `.env` file and copy values from `.env.example`.
 
-3. Run the app
+Example:
 
-```bash
+```
+VITE_FIREBASE_API_KEY=your_key
+VITE_FIREBASE_AUTH_DOMAIN=your_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+```
+
+### 4. Run the app
+
+```
 npm start
 ```
 
-Then open the URL printed in the terminal.
+---
 
-## Firebase setup
+## 🔥 Firebase Setup
 
 ### Authentication
 
-In the Firebase Console:
-
-- Enable **Authentication → Email/Password**
+* Go to Firebase Console
+* Enable **Email/Password Authentication**
 
 ### Firestore
 
-Create a Firestore database, then (optional) use rules like:
+* Create a Firestore database
+* Use rules like:
 
-```js
+```
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -49,12 +89,16 @@ service cloud.firestore {
 }
 ```
 
-This app stores data under:
+### Data Structure
 
-- `users/{uid}/notes/{noteId}`
-- `users/{uid}/tasks/{taskId}`
+```
+users/{uid}/notes/{noteId}
+users/{uid}/tasks/{taskId}
+```
 
-## Folder structure
+---
+
+## 📁 Folder Structure
 
 ```
 src/
@@ -67,25 +111,53 @@ src/
   utils/
 ```
 
-## Scripts
+---
 
-- `npm start`: start dev server
-- `npm run build`: production build
-- `npm run preview`: preview production build
+## 📜 Available Scripts
 
-# React + Vite
+* `npm start` — Start development server
+* `npm run build` — Build for production
+* `npm run preview` — Preview production build
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 🤝 Contributing
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+We welcome contributions!
 
-## React Compiler
+### Steps:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature-name`)
+3. Make your changes
+4. Commit your changes
+5. Push and open a Pull Request
 
-## Expanding the ESLint configuration
+👉 Check the **Issues tab** for available tasks.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🗺 Roadmap
+
+* [ ] Add Google Authentication
+* [ ] Add Profile Page
+* [ ] Add Settings Page
+* [ ] Add Notes Search
+* [ ] Add Pagination
+* [ ] Add Dark Mode Persistence
+* [ ] Add Toast Notifications
+* [ ] Add Mobile Navigation
+* [ ] Add Activity Log
+* [ ] Add Tags for Notes
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## ⭐ Support
+
+If you like this project, consider giving it a star ⭐
