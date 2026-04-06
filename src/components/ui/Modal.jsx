@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { Button } from './Button'
 
-// Simple modal component
 export function Modal({ isOpen, onClose, title, children }) {
   useEffect(() => {
     if (!isOpen) return
