@@ -1,29 +1,10 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import { useState } from 'react'
 import { useAuth } from '../../hooks/useAuth'
 import { useTheme } from '../../hooks/useTheme'
 import { Button } from '../ui/Button'
 import { logout } from '../../services/authService'
-
-function Item({ to, children, end, onNavigate }) {
-  return (
-    <NavLink
-      to={to}
-      end={end}
-      onClick={onNavigate}
-      className={({ isActive }) =>
-        [
-          'rounded-lg px-3 py-2 text-sm font-medium transition',
-          isActive
-            ? 'bg-violet-600 text-white dark:bg-violet-500'
-            : 'text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800',
-        ].join(' ')
-      }
-    >
-      {children}
-    </NavLink>
-  )
-}
+import { Sidebar } from './Sidebar'
 
 export function AppShell() {
   const [open, setOpen] = useState(false)
@@ -76,26 +57,7 @@ export function AppShell() {
       </header>
 
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-4 py-6 md:grid-cols-[240px_1fr]">
-        <aside
-          className={[
-            'rounded-xl border border-slate-200 bg-white p-3 shadow-sm dark:border-slate-800 dark:bg-slate-900',
-            'md:sticky md:top-[76px] md:h-[calc(100vh-76px-48px)] md:self-start',
-            open ? 'block' : 'hidden md:block',
-          ].join(' ')}
-        >
-          <nav className="grid gap-1">
-            {nav.map((n) => (
-              <Item
-                key={n.to}
-                to={n.to}
-                end={n.end}
-                onNavigate={() => setOpen(false)}
-              >
-                {n.label}
-              </Item>
-            ))}
-          </nav>
-        </aside>
+        <Sidebar open={open} onNavigate={() => setOpen(false)} nav={nav} />
 
         <main className="min-w-0">
           <Outlet />
